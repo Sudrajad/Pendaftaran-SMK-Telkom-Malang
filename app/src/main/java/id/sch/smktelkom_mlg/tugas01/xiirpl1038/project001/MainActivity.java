@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
         multi = (CheckBox) findViewById(R.id.multi);
         tata = (CheckBox) findViewById(R.id.tata);
         rgStatus = (RadioGroup) findViewById(R.id.radioGroupStatus);
+        jalur = (Spinner) findViewById(R.id.jalur);
         bOk = (Button) findViewById(R.id.buttonOK);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
@@ -95,7 +96,8 @@ public class MainActivity extends AppCompatActivity
         if(tata.isChecked()) qwe+=tata.getText()+"\n";
 
         if (hasil.length()==startlen) hasil+="Tidak ada pada pilihan";
-        tvHasil.setText("Nama : "+ nama +"\nTahun Lahir : "+ tahun+"\nJenis Kelamin : "+ hasil+"\nAlamat : "+ alam +"\n"+ qwe);
+        tvHasil.setText("Nama : "+ nama +"\nTahun Lahir : "+ tahun+"\nJenis Kelamin : "+ hasil+"\nAlamat : "+ alam +"\n"+ qwe+"Jalur yang Dipilih : "+ jalur.getSelectedItem().toString()
+        );
 
 
     }
