@@ -108,6 +108,18 @@
         android:text="Tataboga"
         android:id="@+id/tata" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Jalur Pendaftaran"
+        android:id="@+id/textView3" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/jalur"
+        android:id="@+id/jalur" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

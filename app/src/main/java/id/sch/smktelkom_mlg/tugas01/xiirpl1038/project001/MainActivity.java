@@ -55,49 +55,40 @@ public class MainActivity extends AppCompatActivity
     {
         String nama = etNama.getText().toString();
         String alam = alamat.getText().toString();
-        int tahun = Integer.parseInt(etTahun.getText().toString());
-        if(isValid())
-        {
-        }
-        String hasil = null;
+        String tahun = etTahun.getText().toString();
+        if(isValid()) {
 
-        if(rgStatus.getCheckedRadioButtonId()!=-1)
-        {
-            RadioButton rb = (RadioButton)
-                    findViewById(rgStatus.getCheckedRadioButtonId());
-            hasil = rb.getText().toString();
-        }
+            String hasil = null;
 
-        if(laki.isChecked())
-        {
-            hasil = laki.getText().toString();
-        }
-        else if(laki.isChecked())
-        {
-            hasil = laki.getText().toString();
-        }
-        else if(perem.isChecked())
-        {
-            hasil = perem.getText().toString();
-        }
-        if (hasil == null)
-        {
-            tvHasil.setText("Belum memilih");
-        }
-        else
-        {
-            tvHasil.setText("Status anda :" + hasil);
-        }
-        String qwe = "Anda memilih Jurusan :";
-        int startlen = qwe.length();
-        if(rpl.isChecked()) qwe+=rpl.getText()+"\n";
-        if(tkj.isChecked()) qwe+=tkj.getText()+"\n";
-        if(multi.isChecked()) qwe+=multi.getText()+"\n";
-        if(tata.isChecked()) qwe+=tata.getText()+"\n";
+            if (rgStatus.getCheckedRadioButtonId() != -1) {
+                RadioButton rb = (RadioButton)
+                        findViewById(rgStatus.getCheckedRadioButtonId());
+                hasil = rb.getText().toString();
+            }
 
-        if (hasil.length()==startlen) hasil+="Tidak ada pada pilihan";
-        tvHasil.setText("Nama : "+ nama +"\nTahun Lahir : "+ tahun+"\nJenis Kelamin : "+ hasil+"\nAlamat : "+ alam +"\n"+ qwe+"Jalur yang Dipilih : "+ jalur.getSelectedItem().toString()
-        );
+            if (laki.isChecked()) {
+                hasil = laki.getText().toString();
+            } else if (laki.isChecked()) {
+                hasil = laki.getText().toString();
+            } else if (perem.isChecked()) {
+                hasil = perem.getText().toString();
+            }
+            if (hasil == null) {
+                tvHasil.setText("Belum memilih");
+            } else {
+                tvHasil.setText("Status anda :" + hasil);
+            }
+            String qwe = "Anda memilih Jurusan :";
+            int startlen = qwe.length();
+            if (rpl.isChecked()) qwe += rpl.getText() + "\n";
+            if (tkj.isChecked()) qwe += tkj.getText() + "\n";
+            if (multi.isChecked()) qwe += multi.getText() + "\n";
+            if (tata.isChecked()) qwe += tata.getText() + "\n";
+
+            if (hasil.length() == startlen) hasil += "Tidak ada pada pilihan";
+            tvHasil.setText("Nama : " + nama + "\nTahun Lahir : " + tahun + "\nJenis Kelamin : " + hasil + "\nAlamat : " + alam + "\n" + qwe + "Jalur yang Dipilih : " + jalur.getSelectedItem().toString()
+            );
+        }
 
 
     }
@@ -135,6 +126,10 @@ public class MainActivity extends AppCompatActivity
             etTahun.setError("Format Tahun Kelahiran bukan yyyy");
             valid = false;
         }
+        else
+        {
+            etTahun.setError(null);
+        }
         if(alam.isEmpty())
         {
             alamat.setError("Alamat Belum Diisi");
@@ -142,9 +137,10 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            etNama.setError(null);
+            alamat.setError(null);
         }
-        return false;
+
+        return valid;
 
     }
 
